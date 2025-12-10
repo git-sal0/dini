@@ -1,0 +1,142 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+
+
+.card-container{
+  position: relative;
+}
+
+.card-container .card{
+  position: relative;
+  width: 320px;
+  height: 450px;
+  background: #dbe0ff; /* K */
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.card-container .card:before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background: #9bdc28; */
+  background: var(--bg-circle-color);
+  clip-path: circle(150px at 80% 20%); 
+  transition: 0.5s ease-in-out;
+}
+
+.card-container .card:hover:before{
+  clip-path: circle(300px at 80% -20%);
+}
+
+.card-container .card:after{
+  content: 'DINI';
+  position: absolute;
+  top: 30%;
+  left: -20%;
+  font-size: 12em;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(15, 13, 134, 0.05) /* K */
+}
+
+.card-container .card .imgBx{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* K */
+  z-index: 10000;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+}
+
+.card-container .card:hover .imgBx{
+  top: 0%;
+  transform: translateY(0%);
+    
+}
+
+.card-container .card .imgBx img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) ;/*rotate(-25deg)*/
+  width: 270px;
+}
+
+.card-container .card .contentBx{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+}
+
+.card-container .card:hover .contentBx{
+  height: 210px;
+}
+
+.card-container .card .contentBx h2{
+  position: relative;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #000000;
+  margin: 0;
+}
+
+
+/* Paragraph inside the card */
+.card-container .card .contentBx .description {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s;
+  color: #000000;
+  padding: 0 15px;
+  font-size: 14px;
+  margin: 10px 0;
+  visibility: hidden;
+}
+
+/* Show when card is hovered */
+.card-container .card:hover .contentBx .description {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition-delay: 0.5s;
+}
+
+
+.card-container .card .contentBx a{
+  display: inline-block;
+  padding: 10px 20px;
+  background: #289adc;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #ffffff;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+  margin-top: 0;
+}
+
+.card-container .card:hover .contentBx a{
+  opacity: 1;
+  transform: translateY(5px);
+  transition-delay: 0.5s;
+  
+}

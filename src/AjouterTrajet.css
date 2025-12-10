@@ -1,0 +1,136 @@
+.trajet-page {
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #f4f6f9;
+	padding: 20px;
+  }
+  
+  .trajet-card {
+	width: 100%;
+	max-width: 600px;
+	padding: 30px;
+	background: white;
+	border-radius: 16px;
+	box-shadow: 0 5px 30px rgba(0,0,0,0.08);
+  }
+  
+  .trajet-card h2 {
+	text-align: center;
+	margin-bottom: 25px;
+	font-size: 26px;
+	font-weight: 700;
+  }
+  
+  .trajet-row {
+	display: flex;
+	gap: 20px;
+	margin-bottom: 18px;
+  }
+  
+  .trajet-input {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .trajet-input label {
+	font-weight: 600;
+	margin-bottom: 6px;
+	color: #444;
+  }
+  
+  .trajet-input input,
+  .trajet-input textarea {
+	width: 100%;
+	padding: 10px 14px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+  }
+  
+  .trajet-input textarea {
+	height: 90px;
+	resize: none;
+  }
+  
+  .trajet-btn {
+	width: 100%;
+	background: #0066ff;
+	color: white;
+	font-size: 17px;
+	padding: 12px;
+	margin-top: 10px;
+	font-weight: 600;
+	border: none;
+	border-radius: 12px;
+	cursor: pointer;
+	transition: 0.3s;
+  }
+  
+  .trajet-btn:hover {
+	background: #004ec2;
+  }
+  
+  /* Mobile */
+  @media (max-width: 600px) {
+	.trajet-row {
+	  flex-direction: column;
+	}
+  }
+  /* Section title spacing */
+.trajet-section h3 {
+	margin-bottom: 15px;
+	font-weight: 700;
+  }
+  
+  /* Full-width Add Stop button */
+
+
+  /* STOP INPUT ROW */
+  .stop-input-wrapper {
+	position: relative;
+	margin-bottom: 12px;
+  }
+  
+  /* Stop input field */
+  .stop-input {
+	width: 100%;
+	padding: 12px 40px 12px 14px;
+	border-radius: 10px;
+	border: 1px solid #ccc;
+	font-size: 15px;
+  }
+  
+/* Bouton secondaire : Ajouter un stop */
+.btn-add-stop {
+    border: 2px solid #ccc;
+    color: #444;
+    background: transparent;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 10px;
+    transition: 0.2s;
+	width: 100%;
+	font-size: 16px;
+	cursor: pointer;
+	margin-bottom: 15px;
+}
+
+
+.btn-add-stop:hover {
+    background: #007bff15; /* léger bleu transparent */
+}
+
+.remove-stop {
+	position: absolute;
+	right: 12px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 18px;
+	color: #d10000;
+	cursor: pointer;
+	user-select: none;
+    border-radius: 8px;
+}

@@ -1,0 +1,208 @@
+* { box-sizing: border-box; }
+
+.offer-container {
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 18px 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #122033;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 900;
+  border-bottom: 4px solid #3fb0ff;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #0a3d5e;          
+  text-transform: uppercase; 
+}
+
+.map-card {
+  display: flex;
+  gap: 18px;
+  background: #dff3ff;
+  border-radius: 16px;
+  padding: 18px;
+  align-items: center;
+}
+
+.map-left { width: 44%; display: flex; flex-direction: column; gap: 12px; }
+
+.time { font-size: 18px; font-weight: 700; color: #0b4a5b; }
+.place { font-weight: 800; margin-top: 6px; }
+.addr { font-size: 12px; color: #2f5566; margin-top: 6px; }
+
+.map-right {
+  width: 56%;
+  height: 250px;            
+  border-radius: 16px;
+  overflow: hidden;        
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.map-right iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: 0 !important;
+  border-radius: 0 !important; 
+  display: block;
+}
+
+.driver-row { display: flex; gap: 16px; margin-top: 18px; }
+
+.driver-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+  min-width: 240px;
+}
+
+.driver-photo { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.driver-meta { display: flex; flex-direction: column; gap: 4px; }
+.driver-name { font-weight: 800; font-size: 18px; }
+.driver-rating { color: #ffb400; font-weight: 700; }
+.driver-badge { background: #e6f7ff; padding: 4px 8px; border-radius: 6px; font-size: 12px; color: #176a8a; }
+
+.desc-card {
+  flex: 1; background: #0e6b8c; color: white;
+  padding: 16px; border-radius: 10px;
+}
+
+.prefs { margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+.pref { background: rgba(255,255,255,0.14); padding: 6px 10px; border-radius: 16px; font-weight: 700; }
+
+.gallery-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  color: #4a4a4a;
+  border: none;
+  width: 40px;
+  height: 80px;
+  font-size: 38px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 5;
+}
+
+.arrow-btn.left { left: -5px; }
+.arrow-btn.right { right: -5px; }
+
+.thumbs-wrapper {
+  display: flex;
+  gap: 10px;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px 0;
+  scroll-behavior: smooth;
+}
+
+.thumb-box {
+  min-width: 250px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumb-box:hover { transform: scale(1.05); }
+
+.via {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  line-height: 15px;
+  font-size: 20px;
+  color: #000;
+}
+
+.dot {
+  font-size: 12px;
+  line-height: 12px;
+  margin: 0;                 
+  padding: 0;
+}
+
+.footer {
+  display:flex; align-items:center;
+  justify-content:space-between;
+  margin-top:18px; gap:20px;
+}
+
+/* Footer fixé en bas */
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff; 
+  padding: 6px 16px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.offer-container {
+  padding-bottom: 70px; 
+}
+
+
+.price-col .per { font-size:12px; color:#6b6b6b; }
+.price-col .price { font-size:28px; color:#0a708c; font-weight:900; }
+
+.actions { display:flex; gap:8px; }
+.msg-btn {
+  padding: 8px 16px;  
+  border-radius: 8px;
+  border: 2px solid #2e9bd1;
+  background: white;
+  color: #2e9bd1;
+  font-weight: 700;
+  font-size: 16px; 
+}
+
+.confirm-btn {
+  padding: 8px 16px;  
+  border-radius: 8px;
+  border: none;
+  background: #009fe3;
+  color: white;
+  font-weight: 900;
+  font-size: 16px; 
+}
+
+@media (max-width: 720px) {
+  .map-card { flex-direction:column; }
+  .map-left { width:100%; }
+  .map-right { width:100%; height:220px; }
+
+  .driver-row { flex-direction:column; }
+}

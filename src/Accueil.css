@@ -1,0 +1,1017 @@
+/* ============================================
+   STYLES DE LA PAGE D'ACCUEIL
+   ============================================ */
+
+/* Conteneur principal de la page */
+.Accueil-Page {
+  width: 100%;              /* Largeur complète de la page */
+  overflow-x: hidden;       /* Masquer le défilement horizontal */
+}
+
+/* ============================================
+   SECTION HERO (Section principale avec image de fond)
+   ============================================ */
+
+/* Section hero avec l'image de fond et le formulaire */
+.Accueil-Hero {
+  width: 100%;             /* Largeur complète */
+  min-height: 60vh;        /* Hauteur minimale de 60% de la hauteur de la fenêtre */
+  background-size: cover;   /* L'image couvre tout l'espace disponible */
+  background-position: center;  /* Centrer l'image */
+  background-repeat: no-repeat; /* Ne pas répéter l'image */
+  display: flex;           /* Utiliser flexbox pour le positionnement */
+  justify-content: center; /* Centrer horizontalement */
+  align-items: flex-start; /* Aligner en haut */
+  padding: 40px 20px 40px; /* Espacement intérieur (haut, droite, bas, gauche) */
+  padding-top: 80px;        /* Espacement supplémentaire en haut pour la navbar */
+  position: relative;      /* Position relative pour les éléments enfants absolus */
+}
+
+/* Overlay sombre par-dessus l'image de fond */
+.Hero-Overlay {
+  position: absolute;      /* Position absolue pour superposer */
+  top: 0;                  /* En haut */
+  left: 0;                 /* À gauche */
+  width: 100%;             /* Largeur complète */
+  height: 100%;            /* Hauteur complète */
+  background: rgba(0, 0, 0, 0.5);  /* Fond noir semi-transparent (50% d'opacité) */
+  backdrop-filter: blur(3px);      /* Effet de flou en arrière-plan */
+}
+
+/* Contenu principal de la section hero */
+.Hero-Content {
+  position: relative;      /* Position relative pour être au-dessus de l'overlay */
+  z-index: 2;              /* Z-index élevé pour être visible */
+  width: 100%;             /* Largeur complète */
+  max-width: 950px;        /* Largeur maximale pour limiter sur grands écrans */
+  color: white;            /* Texte en blanc */
+  text-align: center;      /* Centrer le texte */
+  animation: fadeInUp 0.8s ease-out;  /* Animation d'apparition */
+  margin-top: 100px;
+}
+
+/* Animation d'apparition depuis le bas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;            /* Commencer invisible */
+    transform: translateY(30px);  /* Commencer 30px plus bas */
+  }
+  to {
+    opacity: 1;            /* Finir visible */
+    transform: translateY(0);     /* Finir à la position normale */
+  }
+}
+
+/* Titre principal de la page */
+.Hero-Title-New {
+  margin-bottom: 40px;
+  font-size: 2.8rem;       /* Taille de police grande */
+  font-weight: 700;       /* Police en gras */
+  margin-bottom: 50px;     /* Espacement en bas */
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);  /* Ombre portée pour la lisibilité */
+  animation: fadeInUp 0.8s ease-out 0.2s backwards;  /* Animation avec délai */
+  line-height: 1.3;        /* Hauteur de ligne pour l'espacement */
+  letter-spacing: 0.3px;   /* Espacement entre les lettres */
+  padding: 0 20px;        /* Espacement horizontal */
+}
+
+/* ============================================
+   FORMULAIRE DE RECHERCHE
+   ============================================ */
+
+/* Conteneur pour le formulaire et le bouton */
+.Search-Container {
+  width: 100%;             /* Largeur complète */
+  display: flex;           /* Flexbox */
+  flex-direction: column;  /* Disposition verticale */
+  gap: 20px;               /* Espacement entre les éléments */
+  align-items: center;     /* Centrer les éléments */
+}
+
+/* Formulaire avec effet glassmorphism (verre dépoli) */
+.Search-Form-Glass {
+  width: 100%;             /* Largeur complète */
+  background: rgba(255, 255, 255, 0.08);  /* Fond blanc très transparent */
+  backdrop-filter: blur(25px) saturate(200%);  /* Flou et saturation pour effet verre */
+  -webkit-backdrop-filter: blur(25px) saturate(200%);  /* Version pour WebKit */
+  border-radius: 60px;    /* Coins très arrondis */
+  padding: 10px;           /* Espacement intérieur */
+  border: 1.5px solid rgba(255, 255, 255, 0.25);  /* Bordure blanche semi-transparente */
+  box-shadow: 
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),  /* Ombre portée principale */
+    inset 0 1px 0 rgba(255, 255, 255, 0.3), /* Ombre intérieure pour effet 3D */
+    0 0 80px rgba(255, 255, 255, 0.1);     /* Lueur autour */
+  animation: fadeInUp 0.8s ease-out 0.4s backwards;  /* Animation avec délai */
+  position: relative;      /* Position relative pour les pseudo-éléments */
+  overflow: visible;       /* Permettre le débordement pour les dropdowns */
+}
+
+/* Effet de brillance animé en arrière-plan */
+.Search-Form-Glass::before {
+  content: '';             /* Contenu vide pour le pseudo-élément */
+  position: absolute;      /* Position absolue */
+  top: -50%;               /* Positionner au-dessus */
+  left: -50%;              /* Positionner à gauche */
+  width: 200%;             /* Largeur double pour couvrir */
+  height: 200%;            /* Hauteur double pour couvrir */
+  background: radial-gradient(
+    circle at center,      /* Dégradé radial centré */
+    rgba(255, 255, 255, 0.15) 0%,  /* Blanc au centre */
+    transparent 50%        /* Transparent à 50% */
+  );
+  animation: liquidGlow 4s ease-in-out infinite;  /* Animation infinie */
+  pointer-events: none;    /* Ne pas bloquer les clics */
+}
+
+/* Animation de la brillance */
+@keyframes liquidGlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);  /* Position et taille normales */
+    opacity: 0.5;          /* Opacité moyenne */
+  }
+  50% {
+    transform: translate(10px, 10px) scale(1.1);  /* Déplacement et agrandissement */
+    opacity: 0.8;          /* Opacité plus élevée */
+  }
+}
+
+/* Effet au survol du formulaire */
+.Search-Form-Glass:hover {
+  background: rgba(255, 255, 255, 0.12);  /* Fond plus opaque */
+  border-color: rgba(255, 255, 255, 0.35);  /* Bordure plus visible */
+  box-shadow: 
+    0 8px 40px 0 rgba(31, 38, 135, 0.45),  /* Ombre plus prononcée */
+    inset 0 1px 0 rgba(255, 255, 255, 0.4), /* Ombre intérieure plus forte */
+    0 0 100px rgba(255, 255, 255, 0.15);   /* Lueur plus intense */
+  transform: translateY(-2px);  /* Légère élévation */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition fluide */
+}
+
+/* Ligne horizontale contenant tous les champs */
+.Form-Row-Horizontal {
+  display: flex;           /* Flexbox horizontal */
+  align-items: center;     /* Aligner verticalement au centre */
+  gap: 0;                  /* Pas d'espacement entre les éléments */
+  position: relative;      /* Position relative pour les dropdowns */
+  overflow: visible;       /* Permettre le débordement */
+}
+
+/* Groupe de champ individuel avec effet glass */
+.Form-Group-Glass {
+  flex: 1;                 /* Prendre l'espace disponible */
+  display: flex;           /* Flexbox */
+  align-items: center;     /* Aligner verticalement */
+  gap: 12px;               /* Espacement entre l'icône et le contenu */
+  padding: 16px 20px;      /* Espacement intérieur */
+  position: relative;      /* Position relative pour les dropdowns */
+  min-width: 180px;        /* Largeur minimale */
+  background: rgba(255, 255, 255, 0.03);  /* Fond très transparent */
+  transition: all 0.3s ease;  /* Transition sur toutes les propriétés */
+  z-index: 10;             /* Z-index pour être au-dessus */
+  overflow: visible;        /* Permettre le débordement */
+}
+
+/* Effet au survol d'un groupe de champ */
+.Form-Group-Glass:hover {
+  background: rgba(255, 255, 255, 0.08);  /* Fond plus opaque */
+}
+
+/* Groupe spécial pour le champ passagers (plus petit) */
+.Form-Group-Passagers-Glass {
+  flex: 0.6;               /* Prendre moins d'espace */
+  min-width: 120px;        /* Largeur minimale réduite */
+}
+
+/* Style des icônes dans les champs */
+.Form-Icon-Glass {
+  font-size: 1.4rem;       /* Taille de l'icône */
+  color: rgba(255, 255, 255, 0.9);  /* Couleur blanche presque opaque */
+  flex-shrink: 0;          /* Ne pas rétrécir */
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));  /* Ombre portée */
+  transition: all 0.3s ease;  /* Transition */
+}
+
+/* Effet au survol de l'icône */
+.Form-Group-Glass:hover .Form-Icon-Glass {
+  color: rgba(255, 255, 255, 1);  /* Blanc pur */
+  transform: scale(1.1);   /* Agrandir légèrement */
+}
+
+/* Wrapper pour le label et l'input */
+.Form-Input-Wrapper {
+  display: flex;           /* Flexbox */
+  flex-direction: column;  /* Disposition verticale */
+  gap: 3px;                /* Petit espacement */
+  flex: 1;                 /* Prendre l'espace disponible */
+}
+
+/* Wrapper spécial pour les passagers (centré) */
+.Form-Input-Wrapper-Passagers {
+  display: flex;           /* Flexbox */
+  flex-direction: column;  /* Disposition verticale */
+  align-items: center;     /* Centrer horizontalement */
+  gap: 2px;                /* Petit espacement */
+}
+
+/* Style du label */
+.Form-Label-Glass {
+  font-size: 0.7rem;       /* Petite taille de police */
+  color: rgba(255, 255, 255, 0.85);  /* Blanc semi-transparent */
+  font-weight: 600;         /* Police semi-grasse */
+  text-transform: lowercase;  /* Texte en minuscules */
+  text-align: left;         /* Alignement à gauche */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);  /* Ombre portée */
+  letter-spacing: 0.3px;    /* Espacement entre les lettres */
+}
+
+/* Label en bas (pour les passagers) */
+.Form-Label-Glass-Bottom {
+  font-size: 0.7rem;       /* Petite taille */
+  color: rgba(255, 255, 255, 0.85);  /* Blanc semi-transparent */
+  font-weight: 600;         /* Police semi-grasse */
+  text-transform: capitalize;  /* Première lettre en majuscule */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);  /* Ombre portée */
+  margin-top: -2px;         /* Légère remontée */
+}
+
+/* Style des inputs */
+.Form-Group-Glass input {
+  border: none;            /* Pas de bordure */
+  outline: none;           /* Pas de contour au focus */
+  font-size: 0.9rem;       /* Taille de police */
+  color: white;            /* Texte blanc */
+  background: transparent; /* Fond transparent */
+  padding: 0;              /* Pas de padding */
+  font-weight: 500;        /* Police moyenne */
+  width: 100%;             /* Largeur complète */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);  /* Ombre portée */
+}
+
+/* Style du placeholder */
+.Form-Group-Glass input::placeholder {
+  color: rgba(255, 255, 255, 0.5);  /* Blanc semi-transparent */
+  font-size: 0.8rem;       /* Taille plus petite */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);  /* Ombre portée */
+}
+
+/* Style spécial pour l'input des passagers */
+.Passagers-Number {
+  font-size: 1.3rem !important;  /* Grande taille (important pour surcharger) */
+  font-weight: 700 !important;   /* Police très grasse */
+  color: white !important;       /* Blanc */
+  width: 40px !important;       /* Largeur fixe */
+  text-align: center;           /* Centrer le texte */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6) !important;  /* Ombre portée */
+}
+
+/* Divider vertical entre les champs */
+.Form-Divider-Glass {
+  width: 1.5px;            /* Largeur fine */
+  height: 45px;            /* Hauteur */
+  background: linear-gradient(
+    to bottom,             /* Dégradé vertical */
+    transparent,           /* Transparent en haut */
+    rgba(255, 255, 255, 0.25),  /* Blanc semi-transparent au milieu */
+    transparent            /* Transparent en bas */
+  );
+  flex-shrink: 0;          /* Ne pas rétrécir */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);  /* Lueur */
+}
+
+/* ============================================
+   DROPDOWN DES VILLES
+   ============================================ */
+
+/* Conteneur du dropdown des villes */
+.City-Dropdown-Glass {
+  position: absolute;      /* Position absolue */
+  bottom: 100%;            /* Au-dessus du champ */
+  left: 0;                 /* Aligné à gauche */
+  right: 0;                /* Aligné à droite */
+  background: rgba(255, 255, 255, 0.98);  /* Fond blanc presque opaque */
+  backdrop-filter: blur(20px);  /* Flou en arrière-plan */
+  border: 1.5px solid rgba(0, 0, 0, 0.1);  /* Bordure fine */
+  border-radius: 12px;     /* Coins arrondis */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);  /* Ombre portée */
+  max-height: 300px;       /* Hauteur maximale */
+  overflow-y: auto;        /* Défilement vertical si nécessaire */
+  overflow-x: hidden;      /* Pas de défilement horizontal */
+  z-index: 9999;           /* Z-index très élevé */
+  animation: slideUp 0.3s ease-out;  /* Animation d'apparition */
+  margin-bottom: 8px;       /* Espacement en bas */
+}
+
+/* Animation d'apparition du dropdown */
+@keyframes slideUp {
+  from {
+    opacity: 0;            /* Commencer invisible */
+    transform: translateY(10px);  /* Commencer 10px plus bas */
+  }
+  to {
+    opacity: 1;            /* Finir visible */
+    transform: translateY(0);     /* Finir à la position normale */
+  }
+}
+
+/* Liste des villes */
+.City-List {
+  list-style: none;        /* Pas de puces */
+  padding: 8px 0;          /* Espacement vertical */
+  margin: 0;               /* Pas de marge */
+}
+
+/* Item individuel de la liste */
+.City-Item {
+  padding: 12px 20px;       /* Espacement intérieur */
+  color: #333;             /* Texte sombre */
+  cursor: pointer;          /* Curseur pointeur */
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition fluide */
+  font-size: 0.95rem;      /* Taille de police */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);  /* Bordure fine en bas */
+  font-weight: 500;        /* Police moyenne */
+}
+
+/* Dernier item sans bordure */
+.City-Item:last-child {
+  border-bottom: none;     /* Pas de bordure */
+}
+
+/* Effet au survol d'un item */
+.City-Item:hover {
+  background: rgba(14, 165, 233, 0.15);  /* Fond bleu clair */
+  padding-left: 28px;      /* Décalage à gauche */
+  color: #0ea5e9;          /* Couleur bleue */
+  font-weight: 600;        /* Police plus grasse */
+}
+
+/* Effet au clic */
+.City-Item:active {
+  background: rgba(14, 165, 233, 0.2);  /* Fond bleu plus foncé */
+}
+
+/* ============================================
+   BOUTON DE RECHERCHE
+   ============================================ */
+
+/* Bouton de recherche principal */
+.Search-Button-Bottom {
+  background: #0ea5e9;     /* Fond bleu */
+  color: white;            /* Texte blanc */
+  border: none;            /* Pas de bordure */
+  border-radius: 45px;     /* Coins très arrondis (bouton rond) */
+  padding: 16px 60px;      /* Espacement intérieur */
+  font-size: 1.1rem;       /* Taille de police */
+  font-weight: 700;        /* Police très grasse */
+  cursor: pointer;         /* Curseur pointeur */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition fluide */
+  box-shadow: 
+    0 6px 25px rgba(14, 165, 233, 0.4),  /* Ombre portée bleue */
+    0 0 40px rgba(14, 165, 233, 0.2);   /* Lueur bleue */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);  /* Ombre portée sur le texte */
+  animation: fadeInUp 0.8s ease-out 0.6s backwards;  /* Animation avec délai */
+  position: relative;      /* Position relative pour le pseudo-élément */
+  overflow: hidden;        /* Masquer le débordement */
+}
+
+/* Effet de brillance animé sur le bouton */
+.Search-Button-Bottom::before {
+  content: '';             /* Contenu vide */
+  position: absolute;     /* Position absolue */
+  top: 0;                  /* En haut */
+  left: -100%;            /* Commencer à gauche (hors vue) */
+  width: 100%;             /* Largeur complète */
+  height: 100%;            /* Hauteur complète */
+  background: linear-gradient(
+    90deg,                 /* Dégradé horizontal */
+    transparent,           /* Transparent */
+    rgba(255, 255, 255, 0.3),  /* Blanc semi-transparent */
+    transparent            /* Transparent */
+  );
+  transition: left 0.5s;   /* Transition de la position */
+}
+
+/* Animation de la brillance au survol */
+.Search-Button-Bottom:hover::before {
+  left: 100%;              /* Finir à droite (hors vue) */
+}
+
+/* Effet au survol du bouton */
+.Search-Button-Bottom:hover {
+  background: #0284c7;      /* Fond bleu plus foncé */
+  transform: translateY(-3px);  /* Légère élévation */
+  box-shadow: 
+    0 10px 35px rgba(14, 165, 233, 0.5),  /* Ombre plus prononcée */
+    0 0 60px rgba(14, 165, 233, 0.3);    /* Lueur plus intense */
+}
+
+/* Effet au clic */
+.Search-Button-Bottom:active {
+  transform: translateY(-1px);  /* Légère descente */
+}
+
+/* ============================================
+   MESSAGES D'ERREUR
+   ============================================ */
+
+/* Conteneur des messages d'erreur */
+.Error-Messages-Container {
+  display: flex;           /* Flexbox */
+  flex-wrap: wrap;         /* Permettre le retour à la ligne */
+  gap: 10px;               /* Espacement entre les messages */
+  margin-top: 20px;        /* Espacement en haut */
+  justify-content: center; /* Centrer les messages */
+}
+
+/* Message d'erreur individuel */
+.Error-Message-Inline {
+  font-size: 0.8rem;       /* Petite taille */
+  color: #fca5a5;          /* Couleur rouge clair */
+  background: rgba(239, 68, 68, 0.15);  /* Fond rouge très transparent */
+  backdrop-filter: blur(10px);  /* Flou en arrière-plan */
+  padding: 8px 16px;       /* Espacement intérieur */
+  border-radius: 25px;     /* Coins très arrondis */
+  border: 1px solid rgba(239, 68, 68, 0.3);  /* Bordure rouge */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);  /* Ombre portée */
+}
+
+/* Classe pour les inputs en erreur */
+.input-error {
+  color: #fca5a5 !important;  /* Texte rouge clair */
+}
+
+/* ============================================
+   INPUT DATE
+   ============================================ */
+
+/* Style pour l'input de type date */
+.Form-Group-Glass input[type="date"] {
+  color: rgba(255, 255, 255, 0.5);  /* Texte blanc semi-transparent */
+  font-size: 0.8rem;       /* Petite taille */
+}
+
+/* Style au focus ou quand une date est sélectionnée */
+.Form-Group-Glass input[type="date"]:focus,
+.Form-Group-Glass input[type="date"]:valid {
+  color: white;            /* Texte blanc */
+  font-size: 0.9rem;       /* Taille normale */
+}
+
+/* Style de l'icône du calendrier */
+.Form-Group-Glass input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;         /* Curseur pointeur */
+  filter: invert(1) brightness(1.2);  /* Inverser les couleurs et éclaircir */
+  opacity: 0.7;            /* Légère transparence */
+}
+
+/* ============================================
+   SCROLLBAR PERSONNALISÉE
+   ============================================ */
+
+/* Largeur de la scrollbar */
+.City-Dropdown-Glass::-webkit-scrollbar {
+  width: 6px;              /* Largeur fine */
+}
+
+/* Piste de la scrollbar */
+.City-Dropdown-Glass::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);  /* Fond très transparent */
+  border-radius: 10px;     /* Coins arrondis */
+}
+
+/* Curseur de la scrollbar */
+.City-Dropdown-Glass::-webkit-scrollbar-thumb {
+  background: rgba(14, 165, 233, 0.5);  /* Fond bleu semi-transparent */
+  border-radius: 10px;     /* Coins arrondis */
+}
+
+/* Effet au survol du curseur */
+.City-Dropdown-Glass::-webkit-scrollbar-thumb:hover {
+  background: rgba(14, 165, 233, 0.7);  /* Fond bleu plus opaque */
+}
+
+/* ============================================
+   SECTIONS GÉNÉRALES
+   ============================================ */
+
+/* Titre de section */
+.Section-Title {
+  font-size: 2.5rem;       /* Grande taille */
+  font-weight: 700;        /* Police très grasse */
+  text-align: center;      /* Centrer le texte */
+  margin-bottom: 50px;      /* Espacement en bas */
+  color: #333;             /* Texte sombre */
+  position: relative;      /* Position relative */
+  animation: fadeIn 0.8s ease-out;  /* Animation d'apparition */
+}
+
+/* Animation d'apparition simple */
+@keyframes fadeIn {
+  from {
+    opacity: 0;            /* Commencer invisible */
+  }
+  to {
+    opacity: 1;            /* Finir visible */
+  }
+}
+
+/* ============================================
+   SECTION "POURQUOI CHOISIR DINI"
+   ============================================ */
+
+/* Section principale */
+.Why-Choose-Section {
+  padding: 80px 20px;      /* Espacement intérieur */
+  background: #f8f9fa;     /* Fond gris très clair */
+}
+
+/* Grille pour les 4 cartes de statistiques */
+.Stats-Grid {
+  display: grid;           /* Grille CSS */
+  grid-template-columns: repeat(4, 1fr);  /* 4 colonnes égales */
+  gap: 20px;               /* Espacement entre les cartes */
+  max-width: 1200px;       /* Largeur maximale */
+  margin: 0 auto;          /* Centrer horizontalement */
+}
+
+/* Carte de statistique */
+.Stat-Card {
+  background: white;       /* Fond blanc */
+  border-radius: 16px;     /* Coins arrondis */
+  padding: 30px 20px;      /* Espacement intérieur */
+  text-align: center;      /* Centrer le texte */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);  /* Ombre portée légère */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition fluide */
+  border: none;           /* Pas de bordure */
+  animation: fadeInUp 0.6s ease-out backwards;  /* Animation d'apparition */
+  position: relative;     /* Position relative */
+  overflow: hidden;       /* Masquer le débordement */
+}
+
+/* Barre colorée en haut de la carte */
+.Stat-Card::before {
+  content: '';            /* Contenu vide */
+  position: absolute;     /* Position absolue */
+  top: 0;                 /* En haut */
+  left: 0;                /* À gauche */
+  right: 0;               /* À droite */
+  height: 5px;            /* Hauteur fine */
+  background: #e5e7eb;    /* Fond gris */
+  z-index: 1;             /* Au-dessus */
+}
+
+/* Ombre en arrière-plan (non utilisée) */
+.Stat-Card::after {
+  content: '';            /* Contenu vide */
+  position: absolute;     /* Position absolue */
+  top: 8px;               /* Légèrement décalé */
+  left: 8px;              /* Légèrement décalé */
+  right: -8px;            /* Légèrement décalé */
+  bottom: -8px;           /* Légèrement décalé */
+  background: rgba(200, 200, 200, 0.08);  /* Fond gris très transparent */
+  border-radius: 16px;    /* Coins arrondis */
+  z-index: -1;            /* En arrière-plan */
+  display: none;          /* Masqué par défaut */
+}
+
+/* Délais d'animation pour chaque carte */
+.Stat-Card:nth-child(1) { animation-delay: 0.1s; }
+.Stat-Card:nth-child(2) { animation-delay: 0.2s; }
+.Stat-Card:nth-child(3) { animation-delay: 0.3s; }
+.Stat-Card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Carte bleue */
+.Stat-Card-Blue {
+  border-color: transparent;  /* Bordure transparente */
+}
+
+/* Barre bleue pour les cartes bleues */
+.Stat-Card-Blue::before {
+  background: #1e5b8c;    /* Fond bleu foncé */
+}
+
+/* Carte verte */
+.Stat-Card-Green {
+  border-color: transparent;  /* Bordure transparente */
+}
+
+/* Barre verte pour les cartes vertes */
+.Stat-Card-Green::before {
+  background: #5d7d2e;    /* Fond vert */
+}
+
+/* Effet au survol d'une carte */
+.Stat-Card:hover {
+  transform: translateY(-10px) scale(1.02);  /* Élévation et agrandissement */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);  /* Ombre plus prononcée */
+}
+
+/* Nombre dans la carte */
+.Stat-Number {
+  font-size: 2.5rem;      /* Grande taille */
+  font-weight: 700;        /* Police très grasse */
+  margin-bottom: 10px;     /* Espacement en bas */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition */
+  display: flex;          /* Flexbox */
+  align-items: center;     /* Aligner verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  gap: 2px;               /* Petit espacement */
+}
+
+/* Effet au survol du nombre */
+.Stat-Card:hover .Stat-Number {
+  transform: scale(1.1);   /* Agrandir */
+}
+
+/* Nombre bleu */
+.Stat-Number-Blue {
+  color: #3b82f6;         /* Couleur bleue */
+}
+
+/* Nombre vert */
+.Stat-Number-Green {
+  color: #10b981;         /* Couleur verte */
+}
+
+/* Texte de la carte */
+.Stat-Text {
+  font-size: 0.95rem;      /* Taille normale */
+  color: #666;             /* Texte gris */
+  line-height: 1.5;        /* Hauteur de ligne */
+}
+
+/* ============================================
+   SECTION "COMMENT ÇA MARCHE"
+   ============================================ */
+
+/* Section principale */
+.How-It-Works-Section {
+  padding: 80px 20px;      /* Espacement intérieur */
+  background: #e8edf2;     /* Fond gris clair */
+}
+
+/* Grille pour les 4 étapes */
+.Steps-Grid {
+  display: grid;           /* Grille CSS */
+  grid-template-columns: repeat(4, 1fr);  /* 4 colonnes égales */
+  gap: 30px;               /* Espacement entre les cartes */
+  max-width: 1200px;       /* Largeur maximale */
+  margin: 0 auto;          /* Centrer horizontalement */
+}
+
+/* Carte d'étape */
+.Step-Card {
+  text-align: center;      /* Centrer le texte */
+  padding: 20px 10px;      /* Espacement intérieur */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition */
+  animation: fadeInUp 0.6s ease-out backwards;  /* Animation d'apparition */
+}
+
+/* Délais d'animation pour chaque étape */
+.Step-Card:nth-child(1) { animation-delay: 0.1s; }
+.Step-Card:nth-child(2) { animation-delay: 0.2s; }
+.Step-Card:nth-child(3) { animation-delay: 0.3s; }
+.Step-Card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Effet au survol d'une carte */
+.Step-Card:hover {
+  transform: translateY(-5px);  /* Légère élévation */
+}
+
+/* Icône de l'étape */
+.Step-Icon {
+  font-size: 2rem;         /* Grande taille */
+  margin-bottom: 20px;     /* Espacement en bas */
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition */
+  display: flex;           /* Flexbox */
+  align-items: center;     /* Aligner verticalement */
+  justify-content: center; /* Centrer horizontalement */
+  width: 50px;             /* Largeur fixe */
+  height: 50px;            /* Hauteur fixe */
+  background: #b4d637;     /* Fond vert clair */
+  border-radius: 50%;      /* Cercle parfait */
+  color: black;           /* Texte noir */
+  margin-left: auto;       /* Marge automatique à gauche */
+  margin-right: auto;      /* Marge automatique à droite */
+}
+
+/* Image dans l'icône */
+.Step-Icon img {
+  width: 100%;             /* Largeur complète */
+  height: 100%;            /* Hauteur complète */
+  object-fit: contain;     /* Contenir l'image sans déformation */
+  padding: 12px;           /* Espacement intérieur */
+}
+
+/* Effet au survol de l'icône */
+.Step-Card:hover .Step-Icon {
+  transform: scale(1.15);  /* Agrandir */
+}
+
+/* Titre de l'étape */
+.Step-Title {
+  font-size: 1.2rem;       /* Taille moyenne */
+  font-weight: 700;        /* Police très grasse */
+  color: #333;             /* Texte sombre */
+  margin-bottom: 8px;      /* Espacement en bas */
+}
+
+/* Description de l'étape */
+.Step-Description {
+  font-size: 0.9rem;       /* Petite taille */
+  color: #666;             /* Texte gris */
+}
+
+/* ============================================
+   SECTION "À PROPOS DE NOUS"
+   ============================================ */
+
+/* Section principale */
+.About-Section {
+  padding: 80px 20px;      /* Espacement intérieur */
+  background: #f8f9fa;     /* Fond gris très clair */
+}
+
+/* Contenu avec image et texte */
+.About-Content {
+  display: grid;           /* Grille CSS */
+  grid-template-columns: 1fr 1fr;  /* 2 colonnes égales */
+  gap: 60px;               /* Espacement entre les colonnes */
+  max-width: 1200px;       /* Largeur maximale */
+  margin: 0 auto 60px;     /* Centrer et espacement en bas */
+  align-items: center;     /* Aligner verticalement au centre */
+}
+
+/* Version inversée (texte à gauche, image à droite) */
+.About-Content.Reverse {
+  grid-template-columns: 1fr 1fr;  /* 2 colonnes égales */
+}
+
+/* Ordre inversé pour le texte */
+.About-Content.Reverse .About-Text {
+  order: 1;                /* Premier dans l'ordre d'affichage */
+}
+
+/* Ordre inversé pour l'image */
+.About-Content.Reverse .About-Image-Container {
+  order: 2;                /* Deuxième dans l'ordre d'affichage */
+}
+
+/* Conteneur de l'image */
+.About-Image-Container {
+  position: relative;      /* Position relative pour la carte derrière */
+}
+
+/* Carte colorée derrière l'image */
+.About-Image-Container::before {
+  content: '';             /* Contenu vide */
+  position: absolute;      /* Position absolue */
+  top: -12px;              /* Décalage vers le haut */
+  left: -12px;             /* Décalage vers la gauche */
+  width: 100%;             /* Largeur complète */
+  height: 100%;            /* Hauteur complète */
+  background: #1448d6;     /* Fond bleu */
+  border-radius: 20px;     /* Coins arrondis */
+  z-index: -1;             /* En arrière-plan */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);  /* Ombre douce */
+}
+
+/* Image */
+.About-Image {
+  width: 100%;             /* Largeur complète */
+  height: 100%;            /* Hauteur complète */
+  object-fit: cover;       /* Couvrir l'espace disponible */
+  object-position: center; /* Centrer l'image */
+  display: block;          /* Élément de type bloc */
+  border-radius: 20px;     /* Coins arrondis */
+  position: relative;     /* Position relative */
+}
+
+/* Image placeholder 1 (non utilisée) */
+.Placeholder-Image-1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);  /* Dégradé violet */
+}
+
+/* Image placeholder 2 (non utilisée) */
+.Placeholder-Image-2 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);  /* Dégradé rose */
+}
+
+/* Conteneur du texte */
+.About-Text {
+  padding: 20px;           /* Espacement intérieur */
+}
+
+/* Titre de la section */
+.About-Title {
+  font-size: 2rem;         /* Grande taille */
+  font-weight: 700;        /* Police très grasse */
+  color: #333;             /* Texte sombre */
+  margin-bottom: 20px;     /* Espacement en bas */
+}
+
+/* Paragraphe dans le texte */
+.About-Text p {
+  font-size: 1.1rem;       /* Taille normale */
+  line-height: 1.8;        /* Hauteur de ligne */
+  color: #666;             /* Texte gris */
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+/* Footer principal */
+.Footer {
+  background: #1e293b;     /* Fond bleu très foncé */
+  color: white;            /* Texte blanc */
+  padding: 60px 20px 30px; /* Espacement intérieur */
+}
+
+/* Contenu principal du footer */
+.Footer-Content {
+  display: grid;           /* Grille CSS */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* Colonnes adaptatives */
+  gap: 40px;               /* Espacement entre les colonnes */
+  max-width: 1200px;       /* Largeur maximale */
+  margin: 0 auto 40px;     /* Centrer et espacement en bas */
+}
+
+/* Colonne du footer */
+.Footer-Column {
+  display: flex;           /* Flexbox */
+  flex-direction: column;  /* Disposition verticale */
+}
+
+/* Titre de colonne */
+.Footer-Title {
+  font-size: 1.2rem;      /* Taille moyenne */
+  font-weight: 700;        /* Police très grasse */
+  margin-bottom: 20px;     /* Espacement en bas */
+  color: white;            /* Texte blanc */
+}
+
+/* Liste des liens */
+.Footer-Links {
+  list-style: none;        /* Pas de puces */
+  padding: 0;              /* Pas de padding */
+  margin: 0;               /* Pas de marge */
+}
+
+/* Item de la liste */
+.Footer-Links li {
+  margin-bottom: 12px;     /* Espacement entre les items */
+}
+
+/* Lien dans le footer */
+.Footer-Links a {
+  color: #cbd5e1;         /* Couleur gris clair */
+  text-decoration: none;   /* Pas de soulignement */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition fluide */
+  font-size: 0.95rem;      /* Taille normale */
+  display: inline-block;  /* Élément inline-block */
+}
+
+/* Effet au survol d'un lien */
+.Footer-Links a:hover {
+  color: #1499ff;         /* Couleur bleue */
+  transform: translateX(5px);  /* Décalage vers la droite */
+}
+
+/* Section des réseaux sociaux */
+.Footer-Social {
+  display: flex;           /* Flexbox */
+  justify-content: center; /* Centrer horizontalement */
+  gap: 20px;               /* Espacement entre les icônes */
+  margin: 40px 0;         /* Espacement vertical */
+  flex-wrap: wrap;         /* Permettre le retour à la ligne */
+}
+
+/* Icône sociale */
+.Social-Icon {
+  font-size: 2rem;         /* Grande taille */
+  text-decoration: none;   /* Pas de soulignement */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  /* Transition fluide */
+  display: inline-block;  /* Élément inline-block */
+}
+
+/* Image dans l'icône sociale */
+.Social-Icon img {
+  width: 1.5rem;           /* Largeur fixe */
+  height: 1.5rem;          /* Hauteur fixe */
+  object-fit: contain;     /* Contenir l'image sans déformation */
+}
+
+/* Effet au survol d'une icône sociale */
+.Social-Icon:hover {
+  transform: scale(1.3) rotate(5deg);  /* Agrandir et tourner légèrement */
+}
+
+/* Copyright */
+.Footer-Copyright {
+  text-align: center;      /* Centrer le texte */
+  padding-top: 30px;       /* Espacement en haut */
+  border-top: 1px solid #334155;  /* Bordure en haut */
+  color: #94a3b8;         /* Couleur gris */
+  font-size: 0.9rem;       /* Petite taille */
+}
+
+/* ============================================
+   DESIGN RESPONSIVE
+   ============================================ */
+
+/* Tablettes (écrans moyens) */
+@media (max-width: 992px) {
+  /* Titre plus petit */
+  .Hero-Title-New {
+    font-size: 2.3rem;
+  }
+
+  /* Formulaire avec retour à la ligne */
+  .Form-Row-Horizontal {
+    flex-wrap: wrap;       /* Permettre le retour à la ligne */
+  }
+
+  /* Masquer les dividers */
+  .Form-Divider-Glass {
+    display: none;
+  }
+
+  /* Champs sur 2 colonnes */
+  .Form-Group-Glass {
+    flex: 1 1 calc(50% - 10px);  /* Prendre 50% de largeur */
+    min-width: calc(50% - 10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);  /* Bordure en bas */
+  }
+
+  /* Bouton plus large */
+  .Search-Button-Bottom {
+    width: 80%;
+  }
+}
+
+/* Mobiles (petits écrans) */
+@media (max-width: 768px) {
+  /* Titre encore plus petit */
+  .Hero-Title-New {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+  }
+
+  /* Formulaire en colonne */
+  .Form-Row-Horizontal {
+    flex-direction: column;  /* Disposition verticale */
+  }
+
+  /* Champs pleine largeur */
+  .Form-Group-Glass {
+    flex: 1 1 100%;        /* Prendre 100% de largeur */
+    width: 100%;
+    min-width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 14px 18px;    /* Padding réduit */
+  }
+
+  /* Dernier champ sans bordure */
+  .Form-Group-Glass:last-of-type {
+    border-bottom: none;
+  }
+
+  /* Bouton pleine largeur */
+  .Search-Button-Bottom {
+    width: 100%;
+    padding: 14px 40px;
+  }
+
+  /* Sections en colonne */
+  .About-Content,
+  .About-Content.Reverse {
+    grid-template-columns: 1fr;  /* Une seule colonne */
+  }
+
+  /* Titre de section plus petit */
+  .Section-Title {
+    font-size: 2rem;
+  }
+
+  /* Grilles en colonne */
+  .Stats-Grid,
+  .Steps-Grid {
+    grid-template-columns: 1fr;  /* Une seule colonne */
+  }
+}
+
+/* ============================================
+   OPTIMISATIONS DE PERFORMANCE
+   ============================================ */
+
+/* Réduire les animations pour les utilisateurs qui préfèrent moins de mouvement */
+@media (prefers-reduced-motion: reduce) {
+  /* Tous les éléments */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;  /* Durée minimale */
+    animation-iteration-count: 1 !important;  /* Une seule itération */
+    transition-duration: 0.01ms !important;  /* Durée minimale */
+  }
+}

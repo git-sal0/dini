@@ -1,0 +1,213 @@
+body {
+  background: #f1f5f9; /* ---------------- 5lfiya ---------------- */
+  font-family: "Inter", sans-serif; /* ---------------- No3e l5et ---------------- */
+}
+
+.dini-wrapper {
+  display: grid; /* ---------------- t9sima dyal la page ---------------- */
+  grid-template-columns: 280px 1fr;
+  gap: 25px; /* ---------------- espace bin filtre o les offres ---------------- */
+  padding: 25px;
+}
+
+/* ---------------- FILTERS ---------------- */
+.filters-box {
+  background: white;
+  padding: 22px;
+  border-radius: 16px; /* ---------------- zawiya m3w9a ---------------- */
+  border: 1px solid #d7dbe0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filters-box input[type="text"] {
+  width: 100%;
+  max-width: 220px;
+  padding: 7px 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #cfd4da;
+  background: #f8fafc;
+}
+
+.filters-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px; /* ---------------- espace mabin les element dyal lfiltre ---------------- */
+}
+
+label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.mini-label {
+  margin-top: 6px;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 9px 10px;
+  border-radius: 12px;
+  border: 1px solid #cfd4da;
+  background: #f8fafc;
+  font-size: 15px;
+}
+
+.date-time-row {
+  display: flex;
+  gap: 8px;
+}
+
+.date-time-row input {
+  width: 100px;
+  font-size: 14px;
+}
+
+/* ---------------- hna dik l3iba dyal lbagage ---------------- */
+.toggle {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #c3cad1; /* ---------------- lon 9bl manhrko lbotton ---------------- */
+  transition: 0.4s;
+  border-radius: 34px;/* ---------------- lon b3d manhrko lbotton ---------------- */
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.switch input:checked + .slider {
+  background: #007bff;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+/* ---------------- OFFERS ---------------- */
+.offers-area {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.offers-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.offers-header h2 {
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.sort {
+  font-size: 14px;
+  color: #6e6e6e;
+}
+
+.offer-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px;
+  background: white;
+  border-radius: 16px;
+  border: 2px solid #0077cc;
+  position: relative; 
+}
+
+/* hna dyla les meilleur prix o trajet rapide */
+.highlight-orange { border-color: #ff7b00; }
+.highlight-blue { border-color: #0099ff; }
+
+.tag {
+  position: absolute;
+  top: -12px;
+  right: 16px;
+
+  padding: 6px 14px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.tag.orange { background: #ff7b00; }
+.tag.blue { background: #0099ff; }
+
+.offer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.route-line,
+.details-line {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.offer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0055aa;
+}
+
+.voir-plus{
+  padding: 8px 16px;
+  background: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+}

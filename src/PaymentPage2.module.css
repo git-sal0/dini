@@ -1,0 +1,275 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+}
+
+/**************** PAGE CONTAINER *****************/
+.page-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+/**************** WHITE MAIN CARD *****************/
+.white-card {
+  width: 1000px;
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 25px;
+  border: 1px solid #d6d6d6;
+}
+
+/**************** LEFT SIDE *****************/
+.left-side {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+/************ RADIO *************/
+.radio-group {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 20px;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.radio-item input {
+  accent-color: purple;
+}
+
+/**************** FORM GRID *****************/
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.field.full {
+  grid-column: 1 / -1;
+}
+
+.field label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.field input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  border: 2px solid #c8d7ff;
+  background: #f2f7ff;
+  font-size: 14px;
+  transition: 0.2s;
+  color: #1b2d59;
+}
+
+.field input:focus {
+  border-color: #729cff;
+  outline: none;
+}
+
+/**************** CHECKBOX *****************/
+.checkbox-line {
+  margin-top: 10px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.checkbox-line input {
+  accent-color: blue;
+}
+
+/**************** PAYMENT BUTTON *****************/
+.payment-button-container {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.payment-button {
+  width: 80%;
+  max-width: 300px;
+  background: #b5d300;
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 28px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s;
+  text-align: center;
+}
+
+.payment-button:hover {
+  background: #c7e300;
+}
+
+/**************** RIGHT SIDE *****************/
+.right-side {
+  background: #f2f6ff;
+  border-radius: 16px;
+  border: 2px solid #b9cfff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.detail-block {
+  margin-bottom: 16px;
+}
+
+.detail-block label {
+  font-size: 13px;
+  margin-bottom: 6px;
+  display: block;
+  font-weight: 600;
+}
+
+/**************** PILL FIELDS (read-only) *****************/
+.pill {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid #bdd1ff;
+  background: white;
+  font-weight: 600;
+  color: #1d2e55;
+  cursor: default !important;
+  user-select: none;
+}
+
+/* Désactive tout effet hover */
+.pill:hover {
+  background: white !important;
+  border-color: #bdd1ff !important;
+}
+
+/* Désactive click + texte sélectionnable */
+.pill:focus {
+  outline: none;
+  border-color: #bdd1ff;
+}
+
+/**************** TWO FIELDS IN ROW *****************/
+.two-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.baggage-text {
+  font-size: 12px;
+  margin-top: -5px;
+}
+
+/**************** PRICE *****************/
+.price {
+  font-size: 42px;
+  color: #006a9b;
+  font-weight: 900;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/************ HELP BUTTON *************/
+.help-btn {
+  background: #d5e2ff;
+  color: #00255a;
+  border: none;
+  width: 20px;
+  height: 20px;
+  font-size: 13px;
+  font-weight: 900;
+  border-radius: 50%;
+  margin-left: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.help-btn:hover {
+  background: #adc4ff;
+}
+
+/************ POPUP IMAGE *************/
+.popup-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.60);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+}
+
+.popup-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0;
+}
+
+.popup-card img {
+  max-width: 420px;
+  width: 100%;
+  display: block;
+  background: transparent !important; /* enlève le fond */
+}
+
+
+/**************** RESPONSIVE *****************/
+@media (max-width: 950px) {
+  .white-card {
+    grid-template-columns: 1fr;
+  }
+  
+  .payment-button-container {
+    margin-top: 30px;
+  }
+}
+
+.payment-logo {
+  width: 32px;
+  height: 22px;
+  object-fit: contain;
+  margin-right: 4px;
+}
+
+.payment-logo {
+  width: 40px;
+  height: 28px;
+}

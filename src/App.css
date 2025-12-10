@@ -1,0 +1,207 @@
+
+.NavBar {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  position: absolute;   /* so the hero image appears behind */
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.Li-NavBar {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;  /* Logo left / buttons right */
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.Logo-NavBar img {
+  height: 40px;
+}
+
+.Elements {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.NavBar-bg {
+  background-color: #ffffff;   /*color you want */
+  position: relative; /* remove overlay behavior */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  height: 65px;
+}
+
+
+.NavBar.transparent {
+  position: absolute;   /* puts navbar above content */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: transparent;
+}
+
+
+/* Buttons styling stays same */
+.Element-NavBar a,
+.White-Button,
+.Blue-Button {
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 25px;
+  font-family: sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.Lang-Button{
+  height: 38px;
+  width: 38px;
+  border:  0;
+  border-radius: 100%;
+}
+
+.White-Button {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.White-Button:hover {
+  box-shadow: #1499ff 0 0 0 3px, transparent 0 0 0 0;
+}
+
+
+
+/* CSS */
+.Blue-Button {
+  align-items: center;
+  background-color: #1499ff;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 0.8rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  touch-action: manipulation;
+}
+
+.Blue-Button:disabled {
+  pointer-events: none;
+}
+
+.Blue-Button:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.Blue-Button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.Accueil-Hero {
+  width: 100%;
+  height: 100vh;
+  background: url("./hero.jpg") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px; /* space for navbar */
+  position: relative;
+}
+
+.Hero-Content {
+  color: white;
+  text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,146 @@
+:root {
+  --blue-dark: #000507;
+  --blue-soft: #353dae;
+  --green: #00d146;
+  --blue-main: #341c83;
+  --bg: #ffffff; 
+  --olive: #679436;
+  --lime: #a4bd01;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--blue-dark);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.profile-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--blue-main);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.profile-info h1 {
+  margin: 0;
+  font-size: 28px;
+  color: var(--blue-main);
+}
+
+.profile-info p {
+  margin: 5px 0 12px;
+  font-size: 16px;
+}
+
+.box {
+  background: white;
+  padding: 25px;
+  margin-top: 35px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.box h2 {
+  margin-top: 0;
+  color: var(--blue-main);
+  font-size: 22px;
+}
+
+.prefs {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.pref-item {
+  background: var(--blue-soft);
+  color: #fff !important;
+  padding: 12px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.pref-icon {
+  font-size: 20px;
+  color: #fff !important;
+}
+
+.car-photos {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; 
+}
+
+.car-photos img {
+  width: 100%;
+  height: 170px; 
+  object-fit: cover;
+  border-radius: 14px;
+
+  border: 5px solid #0c329a; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.review-block {
+  display: flex;
+  gap: 15px;
+  background: #f8f8f8;
+  padding: 18px;
+  border-radius: 16px;
+  border-left: 6px solid var(--blue-main);
+  margin-bottom: 18px;
+}
+
+.review-avatar {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #d0d0d0;
+}
+
+.review-content strong {
+  font-size: 17px;
+  color: var(--blue-dark);
+}
+
+.review-meta {
+  color: #777;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.stars {
+  color: #f4c542;
+  font-size: 18px;
+  margin: 6px 0;
+}
+
+.verified {
+  font-size: 14px;
+  font-weight: bold;
+}
