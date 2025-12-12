@@ -157,51 +157,52 @@
   color: white;
   text-align: center;
 }
+@media (max-width: 560px) {
+.Blue-Button {
+  font-size: 0.8rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
 
-
-
-
-
-
-
-
-
-
-.App {
-  text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.White-Button {
+  font-size: 0.8rem;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Lang-Button{
+  height: 30px;
+  width: 30px;
+}
+.NavBar-bg {
+  height: 50px;
+}
+.Elements {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 5px;}
+
+
+.NavBar {
+  padding: 10px;
+}
+}
+@media (max-width: 464px) {
+  .Logo-NavBar img {
+    height: 30px;
+  }
+  .Element-NavBar a,
+.White-Button,
+.Blue-Button {
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-family: sans-serif;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+   

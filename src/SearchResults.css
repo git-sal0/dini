@@ -211,3 +211,159 @@ select {
   font-weight: 600;
   font-size: 15px;
 }
+/* ============================
+   RESPONSIVE DESIGN – MOBILE
+   ============================ */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+  .dini-wrapper {
+    grid-template-columns: 220px 1fr;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .filters-box {
+    padding: 18px;
+  }
+
+  .offer-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .offer-right {
+    align-items: flex-start;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+}
+
+/* Mobile Phones (≤ 768px) */
+@media (max-width: 768px) {
+  .dini-wrapper {
+    grid-template-columns: 1fr; /* Filters on top, offers below */
+    padding: 15px;
+  }
+
+  .filters-box {
+    order: 1;
+  }
+
+  .offers-area {
+    order: 2;
+  }
+
+  .offers-header h2 {
+    font-size: 20px;
+  }
+
+  .offer-card {
+    padding: 15px;
+  }
+
+  .offer-left, .offer-right {
+    width: 100%;
+  }
+
+  .offer-right {
+    align-items: flex-start; /* Price/button aligned left */
+  }
+
+  .price {
+    font-size: 18px;
+  }
+
+  .voir-plus {
+    width: 100%;
+    text-align: center;
+  }
+
+  .route-line,
+  .details-line {
+    font-size: 14px;
+  }
+}
+
+/* Small Mobile Phones (≤ 480px) */
+@media (max-width: 480px) {
+  .filters-title {
+    font-size: 18px;
+  }
+
+  input,
+  select {
+    font-size: 14px;
+    padding: 7px 8px;
+  }
+
+  .offer-card {
+    padding: 12px;
+  }
+
+  .tag {
+    right: 10px;
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .voir-plus {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+/* =====================
+   MOBILE FILTER BUTTON
+   ===================== */
+
+   .filter-toggle-btn {
+    display: none; /* hidden on desktop */
+    width: 100%;
+    padding: 12px 15px;
+    background: #0066ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  
+  /* =====================
+     MOBILE FILTER PANEL
+     ===================== */
+  
+  @media (max-width: 768px) {
+    .filter-toggle-btn {
+      display: flex;
+    }
+  
+    .filters-box {
+      display: none; /* hide by default */
+      position: relative;
+      margin-bottom: 15px;
+      animation: slideDown 0.3s ease;
+    }
+  
+    .filters-box.show {
+      display: block; /* shown when button is clicked */
+    }
+  }
+  
+  /* Small slide animation */
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  

@@ -4,6 +4,8 @@ import "./PaymentPage2.css";
 function PaymentPage() {
   const [imageToShow, setImageToShow] = useState(null);
   const [method, setMethod] = useState("mastercard");
+  const [showDetails, setShowDetails] = useState(false); // new
+  
 
   return (
     <div className="page-container">
@@ -178,44 +180,53 @@ function PaymentPage() {
 
         </div>
 
-        {/* RIGHT SIDE */}
-        <div className="right-side">
-          <h2 className="reservation-title">Détails de la réservation</h2>
 
-          <div className="detail-block">
-            <label>Trajet</label>
-            <p>Ville de départ</p>
-            <input className="pill" value="Laayoune" readOnly />
-            <p>Ville d'arrivée</p>
-            <input className="pill" value="Boujdour" readOnly />
-          </div>
 
-          <div className="detail-block">
-            <label>Date de départ</label>
-            <div className="two-grid">
-              <input className="pill" value="28/11/2025" readOnly />
-              <input className="pill" value="13:00" readOnly />
-            </div>
-          </div>
+{/* RIGHT SIDE */}
+{(showDetails || window.innerWidth > 600) && (
+  <div className="right-side">
+    <h2 className="reservation-title">Détails de la réservation</h2>
 
-          <div className="detail-block">
-            <label>Date d'arrivée</label>
-            <div className="two-grid">
-              <input className="pill" value="29/11/2025" readOnly />
-              <input className="pill" value="06:00" readOnly />
-            </div>
-          </div>
+    <div className="detail-block">
+      <label>Trajet</label>
+      <p>Ville de départ</p>
+      <input className="pill" value="Laayoune" readOnly />
+      <p>Ville d'arrivée</p>
+      <input className="pill" value="Boujdour" readOnly />
+    </div>
 
-          <div className="detail-block">
-            <label>Places et Baggage</label>
-            <input className="pill" value="1 Person" readOnly />
+    <div className="detail-block">
+      <label>Date de départ</label>
+      <div className="two-grid">
+        <input className="pill" value="28/11/2025" readOnly />
+        <input className="pill" value="13:00" readOnly />
+      </div>
+    </div>
 
-          </div>
+    <div className="detail-block">
+      <label>Date d'arrivée</label>
+      <div className="two-grid">
+        <input className="pill" value="29/11/2025" readOnly />
+        <input className="pill" value="06:00" readOnly />
+      </div>
+    </div>
 
-          <p className="baggage-text"> ✔ Baggage autorisé</p>
-          <h1 className="price">60.00 DH</h1>
+    <div className="detail-block">
+      <label>Places et Baggage</label>
+      <input className="pill" value="1 Person" readOnly />
+    </div>
 
-          </div>
+    <p className="baggage-text">✔ Baggage autorisé</p>
+    <h1 className="price">60.00 DH</h1>
+  </div>
+)}
+
+          <button
+  className="show-details-btn"
+  onClick={() => setShowDetails(!showDetails)}
+>
+  {showDetails ? "Masquer Détails" : "Voir Détails de la réservation"}
+</button>
           
           <div className="third-section">
   <div className="pay-row">

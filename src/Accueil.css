@@ -998,6 +998,9 @@
   .Steps-Grid {
     grid-template-columns: 1fr;  /* Une seule colonne */
   }
+  .Accueil-Hero {
+/* Espacement intérieur (haut, droite, bas, gauche) */
+    padding-top: 30px;}
 }
 
 /* ============================================

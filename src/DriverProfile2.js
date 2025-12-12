@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import "./DriverProfile2.css";
 import Driverphoto from "./driver.png";
 import car1 from "./car1.jpeg";
@@ -19,6 +20,8 @@ import {
 } from "react-icons/fa";
 
 function DriverProfile2() {
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const carPhotos = [car1, car2, car3, car4];
   return (
     <div className="container">
 
@@ -115,14 +118,25 @@ function DriverProfile2() {
           <strong>Modèle :</strong> 508
         </p>
 
-        <h3>Photos du véhicule</h3>
+        <h2>Photos du véhicule</h2>
         <div className="car-photos">
-          <img src={car1} alt="car1" />
-          <img src={car2} alt="car2" />
-          <img src={car3} alt="car3" />
-          <img src={car4} alt="car4" />
+          {carPhotos.map((photo, index) => (
+            <img
+              key={index}
+              src={photo}
+              alt={`car${index + 1}`}
+              onClick={() => setSelectedPhoto(photo)}
+              className="clickable-photo"
+            />
+          ))}
         </div>
-      </div>
+        {selectedPhoto && (
+        <div className="photo-modal" onClick={() => setSelectedPhoto(null)}>
+          <img src={selectedPhoto} alt="Car Enlarged" />
+        </div>
+      )}
+    </div>
+
 
       <div className="box">
         <h2>Avis des passagers</h2>

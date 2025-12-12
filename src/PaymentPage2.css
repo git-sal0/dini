@@ -309,4 +309,104 @@ body {
   color: #006a9b;
   font-weight: 900;
 }
+/* Hide by default */
+.show-details-btn {
+  display: none;
+}
+
+/* MOBILE @MEDIA QUERY */
+@media (max-width: 600px) {
+  .page-container {
+    padding: 10px;
+  }
+
+  .white-card {
+    width: 100%;
+    padding: 15px;
+    display: block; /* stack left and right sides */
+    border-radius: 15px;
+  }
+
+  .left-side,
+  .right-side {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+
+  /* RADIO OPTIONS IN ONE LINE */
+  .radio-group {
+    flex-direction: row; /* keep in one line */
+    flex-wrap: nowrap;   /* prevent wrapping */
+    overflow-x: auto;    /* allow scrolling if too wide */
+    gap: 10px;
+  }
+
+  .radio-item {
+    white-space: nowrap; /* prevent label from breaking */
+    font-size: 0;        /* hide text */
+  }
+
+  .radio-item img {
+    width: 28px;
+    height: 20px;
+    display: inline-block;
+    font-size: initial; /* restore size for icon if needed */
+  }
+
+  .field {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  .payment-button {
+    width: 100%;
+    font-size: 16px;
+    padding: 14px;
+  }
+
+  .pill {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .price {
+    font-size: 28px;
+  }
+
+  .payment-logo {
+    width: 28px;
+    height: 20px;
+  }
+}
+/* MOBILE @MEDIA QUERY */
+
+
+/* Show only on mobile */
+@media (max-width: 600px) {
+  .show-details-btn {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0066cc;        /* Blue text */
+    text-decoration: underline; /* Underline */
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;       /* Optional: align left like a link */
+  }
+
+  .show-details-btn:hover {
+    color: #004999;        /* Darker blue on hover */
+  }
+}
+@media (max-width: 600px) {
+  .right-side {
+    padding: 15px; /* adjust as needed */
+    border-radius: 12px; /* optional: keep it looking nice */
+  }
+}
 

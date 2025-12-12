@@ -144,3 +144,98 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
+
+
+.car-photos {
+  margin-top: 20px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.car-photos img {
+  width: 100%;
+  height: 170px; 
+  object-fit: cover;
+  border-radius: 14px;
+  border: 5px solid #0c329a; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+
+@media (max-width: 768px) {
+  .car-photos img {
+    height: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .car-photos img {
+    height: 120px;
+  }
+}
+/* Make car photos cursor clickable */
+.clickable-photo {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.clickable-photo:hover {
+  transform: scale(1.05);
+}
+
+/* Modal styles */
+.photo-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.photo-modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.profile-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  flex-direction: row; /* Default: horizontal layout */
+}
+
+/* Mobile layout */
+@media (max-width: 768px) {
+  .profile-card {
+    flex-direction: column; /* Stack items vertically */
+    text-align: center;     /* Center the text */
+    gap: 15px;
+  }
+
+  .profile-info h1 {
+    font-size: 24px; /* Adjust font size if needed */
+  }
+
+  .profile-photo {
+    width: 120px;  /* Smaller photo on mobile */
+    height: 120px;
+  }
+}
+@media (max-width: 768px) {
+  .profile-info p {
+    margin: 5px 0 8px;
+  }
+}

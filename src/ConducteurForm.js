@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { FiLock, FiCheckCircle } from "react-icons/fi";
+import { FiLock, FiUser, FiCheckCircle } from "react-icons/fi";
 import { FaCar } from "react-icons/fa";
 import "./Form.css";
 import conducteur from "./conducteur3.png";
 import FileUpload from "./FileUpload";
 
+
 function ConducteurForm() {
+  
   useEffect(() => {
     const onTabShown = (e) => {
       const activated = e.target.getAttribute("data-bs-target");
@@ -152,7 +154,7 @@ const [errorVehicule, setErrorVehicule] = useState("");
               type="button"
               role="tab"
             >
-              <FaCar className="tab-icon" /> Profil conducteur
+              <FiUser className="tab-icon" /> Profil conducteur
             </button>
 
             <button

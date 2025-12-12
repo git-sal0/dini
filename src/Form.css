@@ -498,3 +498,188 @@
   width: 100%;
 }
 
+/* Mobile-only adjustments */
+@media (max-width: 768px) {
+  /* Hide the Right-content-p picture in info form */
+  #info-perso .Right-content-p {
+    display: none;
+  }
+
+  /* Profile form & Car photos: stack vertically */
+  .profile-form, .car-form-full {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Profile photo at the bottom */
+  .Right-content-p {
+    order: 2; /* push to bottom */
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+
+  /* Car photo items at bottom */
+  .car-images-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Tabs: hide labels, only show icons */
+  .nav-link {
+    font-size: 0; /* hide text */
+    padding: 10px;
+  }
+
+  .nav-link .tab-icon {
+    font-size: 22px;
+  }
+
+  /* Only active tab content visible */
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active, .tab-pane.show.active {
+    display: block;
+  }
+}
+/* Terminer / profile preview mobile */
+@media (max-width: 768px) {
+  .profile-preview {
+    flex-direction: column;   /* stack photo and info */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  /* Profile photo */
+  .preview-photo-section {
+    order: 0;                 /* show first */
+    width: 100%;
+    justify-content: center;
+  }
+
+  .preview-photo {
+    width: 160px;
+    height: 160px;
+  }
+
+  /* Info section */
+  .preview-info {
+    order: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .preview-name {
+    font-size: 22px;
+  }
+
+  .preview-username {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .preview-section h4 {
+    font-size: 16px;
+  }
+
+  /* Car photos below info */
+  .finish-car-photos {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    order: 2;
+  }
+
+  .finish-car-photo, .car-photo-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (max-width: 768px) {
+  .nav-tabs {
+    display: none; /* hide desktop tabs */
+  }
+
+  .mobile-stepper {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .mobile-stepper .step {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e8efff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .mobile-stepper .step.active {
+    background: #2e77ff;
+    color: white;
+  }
+
+  .mobile-stepper .step.completed {
+    background: #28a745;
+    color: white;
+  }
+
+  .mobile-stepper .step-icon {
+    font-size: 18px;
+  }
+}
+/* Mobile-specific overrides */
+@media (max-width: 768px) {
+  /* Hide tab text */
+  .nav-link {
+    font-size: 0 !important;       /* hide text */
+    min-width: 50px !important;
+  }
+
+
+}
+@media (max-width: 900px) {
+  .p-form {
+    flex-direction: column;   /* stack inputs and button */
+    align-items: stretch;     /* make children full width */
+  }
+
+  .form-submit-btn1,
+  .form-submit-btn2,
+  .form-submit-btn3 {
+    position: static;        /* remove absolute positioning */
+    width: 100%;             /* full width */
+    margin-top: 16px;        /* spacing after last input */
+  }
+}
+@media (max-width: 900px) {
+  .profile-form {
+    flex-direction: column;       /* stack inputs and right section */
+  }
+
+  .Right-content-p {
+    order: 1;                     /* move image section first */
+  }
+
+  .form-submit-btn2 {
+    order: 2;                     /* make button come after the image */
+    position: static;             /* remove absolute */
+    width: 100%;                  /* full width */
+    margin-top: 16px;             /* spacing */
+  }
+
+  .left-content-f {
+    order: 0;                     /* inputs first */
+  }
+}
+
+
+
+
+

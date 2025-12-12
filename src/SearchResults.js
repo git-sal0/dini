@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FiMapPin, FiCalendar, FiUsers } from "react-icons/fi";// hadi 3la 9bl les icones
+import {
+  FiMapPin,
+  FiCalendar,
+  FiUsers,
+  FiFilter
+} from "react-icons/fi";
 import "./SearchResults.css";
 
 const SearchResults = () => {
-  // hna lfiltartion dyal dakchi li f state
+  // Filters state
   const [filters, setFilters] = useState({
     from: "",
     to: "",
@@ -14,53 +19,149 @@ const SearchResults = () => {
     date: "",
     time: "",
   });
- // hana la liste dyal gaaa3e les offre li kaynin
+
+  // Mobile: toggle filters panel
+  const [showFilters, setShowFilters] = useState(false);
+
+  // Offers list
   const offers = [
-    { id: 0, from: "Laayoune", to: "Boujdour", date: "2025-11-28", time: "21:00", persons: 2, price: 75, tag: "Trajet Rapide", color: "orange" },
-    { id: 1, from: "Laayoune", to: "Boujdour", date: "2025-11-28", time: "23:00", persons: 1, price: 60 },
-    { id: 2, from: "Laayoune", to: "Gwera", date: "2025-11-28", time: "10:00", persons: 3, price: 50, tag: "Meilleur prix", color: "blue" },
-    { id: 3, from: "Agadir", to: "Boujdour", date: "2025-11-28", time: "19:00", persons: 1, price: 160 },
-    { id: 4, from: "Laayoune", to: "Gwera", date: "2025-11-28", time: "06:00", persons: 2, price: 70 },
-    { id: 5, from: "Laayoune", to: "Boujdour", date: "2025-11-28", time: "21:00", persons: 4, price: 40 },
-    { id: 6, from: "Sidi Ifni", to: "Boujdour", date: "2025-11-28", time: "09:00", persons: 2, price: 80 },
+    {
+      id: 0,
+      from: "Laayoune",
+      to: "Boujdour",
+      date: "2025-11-28",
+      time: "21:00",
+      persons: 2,
+      price: 75,
+      tag: "Trajet Rapide",
+      color: "orange"
+    },
+    {
+      id: 1,
+      from: "Laayoune",
+      to: "Boujdour",
+      date: "2025-11-28",
+      time: "23:00",
+      persons: 1,
+      price: 60
+    },
+    {
+      id: 2,
+      from: "Laayoune",
+      to: "Gwera",
+      date: "2025-11-28",
+      time: "10:00",
+      persons: 3,
+      price: 50,
+      tag: "Meilleur prix",
+      color: "blue"
+    },
+    {
+      id: 3,
+      from: "Agadir",
+      to: "Boujdour",
+      date: "2025-11-28",
+      time: "19:00",
+      persons: 1,
+      price: 160
+    },
+    {
+      id: 4,
+      from: "Laayoune",
+      to: "Gwera",
+      date: "2025-11-28",
+      time: "06:00",
+      persons: 2,
+      price: 70
+    },
+    {
+      id: 5,
+      from: "Laayoune",
+      to: "Boujdour",
+      date: "2025-11-28",
+      time: "21:00",
+      persons: 4,
+      price: 40
+    },
+    {
+      id: 6,
+      from: "Sidi Ifni",
+      to: "Boujdour",
+      date: "2025-11-28",
+      time: "09:00",
+      persons: 2,
+      price: 80
+    },
   ];
 
-  // hna kaytb9e lfiltration 3la les offres 
-const filteredOffers = offers.filter(o => {
-  return (
-    (filters.from ? o.from.toLowerCase().includes(filters.from.toLowerCase()) : true) &&  // kay9lb 3la la ville de départ li ktbna wach kayna 
-    (filters.to ? o.to.toLowerCase().includes(filters.to.toLowerCase()) : true) && // kay9lb 3la la ville d'arrivée li ktbna wach kayna
-    (filters.date ? o.date === filters.date : true) && // kay9lb 3la la date li ktbna wach kayna
-    (filters.time ? o.time === filters.time : true) && // kay9lb 3la sa3a li ktbna wach kayna
-    (filters.min !== "" ? o.price >= Number(filters.min) : true) && // kanhdedo a9al tamane
-    (filters.max !== "" ? o.price <= Number(filters.max) : true) && // kanhdedo aktar tamane
-    (filters.seats ? o.persons === Number(filters.seats) : true)  // kay9lb 3la les pffres li 3ndhom dak le nombre de place li ktbna wach kayna
-  );
-});
+  // Filter logic
+  const filteredOffers = offers.filter((o) => {
+    return (
+      (filters.from ? o.from.toLowerCase().includes(filters.from.toLowerCase()) : true) &&
+      (filters.to ? o.to.toLowerCase().includes(filters.to.toLowerCase()) : true) &&
+      (filters.date ? o.date === filters.date : true) &&
+      (filters.time ? o.time === filters.time : true) &&
+      (filters.min !== "" ? o.price >= Number(filters.min) : true) &&
+      (filters.max !== "" ? o.price <= Number(filters.max) : true) &&
+      (filters.seats ? o.persons === Number(filters.seats) : true)
+    );
+  });
 
   return (
-    <div className="dini-wrapper">       {/* ---- dakchi li kayban f la page mn hna kaybda ---- */}
+    <div className="dini-wrapper">
 
+      {/* MOBILE filter button */}
+      <button
+        className="filter-toggle-btn"
+        onClick={() => setShowFilters(!showFilters)}
+      >
+        <FiFilter size={18} />
+        Filtrer
+      </button>
 
-      <aside className="filters-box">  {/* ---- han kaybda lfiltre ---- */}
+      {/* FILTERS PANEL */}
+      <aside className={`filters-box ${showFilters ? "show" : ""}`}>
         <h3 className="filters-title">Filtrer par :</h3>
 
         <label>Trajet</label>
-        <label className="mini-label">Ville départ</label>
-        <input type="text" placeholder="Laayoune" onChange={(e)=> setFilters({...filters, from: e.target.value})} /> {/* ---- hna kaya5ed dakchi li kaykteb l'utilisateur f input o kay5bih f state bach n5dro n5dmo bih mn b3d ---- */}
-
-        <label className="mini-label">Ville d’arrivée</label>
-        <input type="text" placeholder="Boujdour" onChange={(e)=> setFilters({...filters, to: e.target.value})} /> {/* ---- nfs chi ---- */}
+        <br/>
+        <label className="mini-label">Ville départ</label><br/>
+        <input
+          type="text"
+          placeholder="Laayoune"
+          onChange={(e) =>
+            setFilters({ ...filters, from: e.target.value })
+          }
+        />
+<br/>
+        <label className="mini-label">Ville d’arrivée</label><br/>
+        <input
+          type="text"
+          placeholder="Boujdour"
+          onChange={(e) =>
+            setFilters({ ...filters, to: e.target.value })
+          }
+        />
 
         <div className="date-time-row">
           <div>
-            <label className="mini-label">Date</label>
-            <input type="date" onChange={(e)=> setFilters({...filters, date: e.target.value})} /> {/* ---- nfs chi ---- */}
+            <label className="mini-label">Date</label><br/>
+            <input
+              type="date"
+              onChange={(e) =>
+                setFilters({ ...filters, date: e.target.value })
+              }
+            />
           </div>
 
           <div>
-            <label className="mini-label">Heure</label>
-            <input type="time" onChange={(e)=> setFilters({...filters, time: e.target.value})} /> {/* ---- nfs chi ---- */}
+            <label className="mini-label">Heure</label><br/>
+            <input
+              type="time"
+              onChange={(e) =>
+                setFilters({ ...filters, time: e.target.value })
+              }
+            />
           </div>
         </div>
 
@@ -68,18 +169,35 @@ const filteredOffers = offers.filter(o => {
 
         <div className="date-time-row">
           <div>
-            <label className="mini-label">Prix min</label>
-            <input type="number" min="0" onChange={(e)=> setFilters({...filters, min: e.target.value})} /> {/* ---- nfs chi ---- */}
+            <label className="mini-label">Prix min</label><br/>
+            <input
+              type="number"
+              min="0"
+              onChange={(e) =>
+                setFilters({ ...filters, min: e.target.value })
+              }
+            />
           </div>
 
           <div>
-            <label className="mini-label">Prix max</label>
-            <input type="number" min="0" onChange={(e)=> setFilters({...filters, max: e.target.value})} /> {/* ---- nfs chi ---- */}
+            <label className="mini-label">Prix max</label><br/>
+            <input
+              type="number"
+              min="0"
+              onChange={(e) =>
+                setFilters({ ...filters, max: e.target.value })
+              }
+            />
           </div>
         </div>
 
         <label>Places & Bagage</label>
-        <select onChange={(e)=> setFilters({...filters, seats: e.target.value})}> {/* ---- nfs chi ---- */}
+
+        <select
+          onChange={(e) =>
+            setFilters({ ...filters, seats: e.target.value })
+          }
+        >
           <option value="">Toutes les places</option>
           <option value="1">1 Personne</option>
           <option value="2">2 Personnes</option>
@@ -87,10 +205,8 @@ const filteredOffers = offers.filter(o => {
           <option value="4">4 Personnes</option>
         </select>
 
-
         <div className="toggle">
           <span>Baggage autorisé</span>
-
           <label className="switch">
             <input type="checkbox" />
             <span className="slider round"></span>
@@ -98,43 +214,45 @@ const filteredOffers = offers.filter(o => {
         </div>
       </aside>
 
-      {/* ---- OFFERS ---- */}
+      {/* =====================
+          OFFERS LIST
+      ====================== */}
       <main className="offers-area">
         <div className="offers-header">
           <h2>{filteredOffers.length} offres trouvée</h2>
           <span className="sort">Plus récent</span>
         </div>
-       {/* ---- hna kay9elb 3la les offres o kayhthom  ---- */}
-        {filteredOffers.map(o => (
-          <div 
-            className={`offer-card ${o.color === "orange" ? "highlight-orange" : ""} ${o.color === "blue" ? "highlight-blue" : ""}`}
-            key={o.id} // hadi z3ma kamchi kaychof les offret li fihom dik l3iba lfo9e kaydirom ya b orange ya blue
-          >
 
-            {/* BADGE EN HAUT */}
-            {o.tag && (
-              <span className={`tag ${o.color}`}>{o.tag}</span>
-            )}
+        {filteredOffers.map((o) => (
+          <div
+            className={`offer-card ${
+              o.color === "orange" ? "highlight-orange" : ""
+            } ${o.color === "blue" ? "highlight-blue" : ""}`}
+            key={o.id}
+          >
+            {/* BADGE */}
+            {o.tag && <span className={`tag ${o.color}`}>{o.tag}</span>}
 
             <div className="offer-left">
               <div className="route-line">
-                <FiMapPin /> {o.from} → {o.to}  {/* ---- mn fin htal fin ---- */}
+                <FiMapPin /> {o.from} → {o.to}
               </div>
 
               <div className="details-line">
-                <FiCalendar /> {o.date} <strong>{o.time}</strong> {/* ---- tari5e o lw9t ---- */}
+                <FiCalendar /> {o.date} <strong>{o.time}</strong>
               </div>
 
               <div className="details-line">
-                <FiUsers /> {o.persons} Persons {/* ---- nombre de place ---- */}
+                <FiUsers /> {o.persons} Persons
               </div>
             </div>
 
             <div className="offer-right">
-              <div className="price">{o.price}.00 MAD</div> {/* ---- kay9leb 3la tamane o kayhto lina kayzid .00 MAD ---- */}
-              <Link to="/Details"><button className="voir-plus">voir plus</button></Link>
+              <div className="price">{o.price}.00 MAD</div>
+              <Link to="/Details">
+                <button className="voir-plus">voir plus</button>
+              </Link>
             </div>
-
           </div>
         ))}
       </main>
