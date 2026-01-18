@@ -47,6 +47,3 @@ While academic in nature, the project follows **professional development practic
 
 ---
 
-## License
-
-This project is intended for educational use.
