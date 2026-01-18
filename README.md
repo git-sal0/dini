@@ -35,9 +35,9 @@ It was designed to simulate a real-world development environment, with shared re
 
 ## Team & Contributions
 
-This project was developed by:
+- This project was developed by:
 Salma-Zineb-Imane-Mannana
-All major technical and UX decisions were made **collectively as a team**.
+- All major technical and UX decisions were made **collectively as a team**.
 ---
 
 ## Academic Note
